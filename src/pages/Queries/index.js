@@ -1,22 +1,22 @@
 import { useState, useEffect } from "react"
 
+import { getQueries } from "../../services/queryServices"
+
 export default function Queries(props){
     const [ isLoading, setIsLoading] = useState(true)
     const [ queries, setQueries] = useState([])
-    const BASE_URL = 'http://localhost:4000/queries'
 
-    const getQueries = async () => {
+    async function handleRequest(){
         try{
-            const response = await fetch(BASE_URL)
-            const allQueries = await response.json()
-            setQueries(allQueries)
+            const queriesData = await getQueries()
+            setQueries(queriesData)
             setIsLoading(false)
         } catch(err){
             console.log(err)
         }
     }
 
-    useEffect(() => {getQueries()}, [])
+    useEffect(() => {handleRequest()}, [])
     console.log(`There is/are ${queries.length} queries available to render`)
 
     const loaded = () => {
@@ -32,7 +32,9 @@ export default function Queries(props){
     }
 
     const loading = () => {
-        <div className="query-list">
+
+        return (
+            <div className="query-list">
       <h1>
         Loading...
         <span>
@@ -44,6 +46,7 @@ export default function Queries(props){
         </span>
       </h1>
     </div>
+        )
     }    
 
     return (

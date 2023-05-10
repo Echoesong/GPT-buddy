@@ -5,9 +5,9 @@ function Nav(){
     return(
         <nav className='nav'>
             <Link to='/'>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt=''/>
+                <img className='account-icon' src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt=''/>
             </Link>
-        <div>People App</div>
+        <div>Queries</div>
     </nav>
     )
     

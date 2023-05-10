@@ -13,6 +13,11 @@
 	width: 100%;
 }
 
+.account-icon{
+  width: 100px;
+  height: 100px
+}
+
 @keyframes loading{
   from{
     transform: rotateZ(0deg);
