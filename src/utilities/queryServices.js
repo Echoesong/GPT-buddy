@@ -9,3 +9,13 @@ export async function getQueries(){
         return err
     }
 }
+
+export async function createQuery(data){
+    try{
+        const newQuery = await queriesApi.create(data)
+        return newQuery
+    } catch(err){
+        console.log(err)
+        return err
+    }
+}

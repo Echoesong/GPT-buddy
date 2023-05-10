@@ -13,3 +13,24 @@ export const index = async () => {
         return err
     }
 }
+
+export const create = async (data) => {
+    try{
+        console.log(data)
+        const response = await fetch(BASE_URL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        if(response.ok){
+            return response.json()
+        } else{
+            throw new Error('Invalid request')
+        }
+    } catch(err){
+        console.log(err)
+        return err
+    }
+}
