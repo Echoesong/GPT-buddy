@@ -17,7 +17,6 @@ export default function Queries(props){
     }
 
     useEffect(() => {handleRequest()}, [])
-    console.log(`There is/are ${queries.length} queries available to render`)
 
     const loaded = () => {
         return queries?.map((query) => {
