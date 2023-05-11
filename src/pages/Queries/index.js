@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
-import { getQueries, createQuery } from "../../utilities/queryServices";
-import { Link } from "react-router-dom"
+import { getQueries, createQuery, deleteQuery } from "../../utilities/queryServices";
+import { Link, useParams, useNavigate } from "react-router-dom"
 
 export default function Queries(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [queries, setQueries] = useState([]);
+  const [refreshData, setRefreshData] = useState(false)
+  const navigate = useNavigate();
 //   Below I set state for a form. For my app, the only thing they will input is the text submission; response and analysis will be filled in by GPT response
   const [newForm, setNewForm] = useState({
     submission: '',
@@ -33,9 +35,28 @@ export default function Queries(props) {
     }
   }
 
+  const handleQueryDelete = async (id) => {
+    console.log('id passed to dlete func', id)
+    try{
+      const delResponse = await deleteQuery(id)
+      console.log(delResponse)
+
+      if(delResponse._id){
+        setRefreshData(!refreshData)
+      } else{
+        console.log('delResponse:', delResponse)
+        throw new Error('Something went wrong')
+      }
+    } catch(err){
+      console.log(err)
+      navigate(`/queries/${id}`)
+    }
+
+  }
+
   useEffect(() => {
     handleRequest();
-  }, []);
+  }, [refreshData]);
   console.log("all shown queries", queries)
   const loaded = () => {
     return queries?.map((query) => {
@@ -48,6 +69,7 @@ export default function Queries(props) {
             <div>{query.response}</div>
             <div>{query.analysis}</div>
           </Link>
+          <button onClick={() => handleQueryDelete(query._id)}>Delete</button>
         </div>
       );
     });

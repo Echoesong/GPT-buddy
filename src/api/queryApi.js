@@ -50,3 +50,21 @@ export const create = async (data) => {
         return err
     }
 }
+
+export const destroy = async (id) => {
+    const options = {
+        method: 'DELETE'
+    }
+    const url = `${BASE_URL}/${id}`
+    try{
+        const response = await fetch(url, options)
+        if(response.ok){
+            return response.json()
+        } else{
+            throw new Error('Invalid request')
+        }
+    } catch(err){
+        console.log(err)
+        return err
+    }
+}

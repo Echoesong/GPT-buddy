@@ -29,3 +29,14 @@ export async function getQuery(id){
         throw new Error(err)
     }
 }
+
+export async function deleteQuery(id){
+    try{   
+        const deletedQuery = await queriesApi.destroy(id)
+        console.log(deletedQuery)
+        return deletedQuery
+    } catch(err){
+        console.log(err)
+        throw new Error(err)
+    }
+}
