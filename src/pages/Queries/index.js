@@ -35,7 +35,7 @@ export default function Queries(props) {
   useEffect(() => {
     handleRequest();
   }, []);
-
+  console.log(queries)
   const loaded = () => {
     return queries?.map((query) => {
       return (
