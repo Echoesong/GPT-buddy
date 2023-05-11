@@ -19,3 +19,13 @@ export async function createQuery(data){
         return err
     }
 }
+
+export async function getQuery(id){
+    try{
+        const query = await queriesApi.detail(id)
+        return query
+    } catch(err){
+        console.log(err)
+        throw new Error(err)
+    }
+}
