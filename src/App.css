@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .query-list{
     display: grid;
     grid-template-columns: repeat(3,1fr);
@@ -11,6 +15,11 @@
 
 .profile-image{
 	width: 100%;
+}
+
+.account-icon{
+  width: 100px;
+  height: 100px
 }
 
 @keyframes loading{
