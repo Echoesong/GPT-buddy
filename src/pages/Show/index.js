@@ -19,6 +19,7 @@ export default function Show(props) {
 
   useEffect(() => {
     handleRequest();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const loaded = () => (
