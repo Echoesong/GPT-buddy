@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getQueries, createQuery, deleteQuery } from "../../utilities/queryServices";
-import { Link, useParams, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Queries(props) {
   const [isLoading, setIsLoading] = useState(true);
