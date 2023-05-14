@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { getQueries, createQuery, deleteQuery } from "../../utilities/queryServices";
 import { Link, useNavigate } from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Queries(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [queries, setQueries] = useState([]);
   const [refreshData, setRefreshData] = useState(false)
   const navigate = useNavigate();
+  
 //   Below I set state for a form. For my app, the only thing they will input is the text submission; response and analysis will be filled in by GPT response
   const [newForm, setNewForm] = useState({
     submission: '',
@@ -24,10 +26,11 @@ export default function Queries(props) {
     setNewForm({submission: '', response: '', analysis: '' })
     handleRequest()
   }
-
+  const { getAccessTokenSilently } = useAuth0()
   async function handleRequest() {
     try {
-      const queriesData = await getQueries();
+      const token = await getAccessTokenSilently()
+      const queriesData = await getQueries(token);
       setQueries(queriesData);
       setIsLoading(false);
     } catch (err) {
@@ -59,20 +62,29 @@ export default function Queries(props) {
   }, [refreshData]);
   console.log("all shown queries", queries)
   const loaded = () => {
-    return queries?.map((query) => {
-      return (
-        <div key={query._id}
-        className='border-radius-1 ring-2 ring-black'
-        >
-          <Link to={`/queries/${query._id}`}>
-            <div>{query.submission}</div>
-            <div>{query.response}</div>
-            <div>{query.analysis}</div>
-          </Link>
-          <button onClick={() => handleQueryDelete(query._id)}>Delete</button>
-        </div>
-      );
-    });
+    if (Array.isArray(queries)){
+      return queries.map((query) => {
+        return (
+          <div key={query._id}
+          className='card w-96 bg-base-100 shadow-xl'
+          >
+            <div className='card-body'>
+              <div className=''>
+                <Link to={`/queries/${query._id}`}> 
+                  <p>{query.submission}</p>
+                  <p>{query.response}</p>
+                </Link>
+              </div>
+            </div>
+            <button className='btn btn-danger' onClick={() => handleQueryDelete(query._id)}>Delete</button>
+          </div>
+        );
+      });
+
+    } else {
+      console.error('Queries is not an array:', queries);
+      return null;
+    }
   };
 
   const loading = () => {
@@ -94,39 +106,24 @@ export default function Queries(props) {
 
   return (
     <div className="index-page">
-        <section className="query-list">{isLoading ? loading() : loaded()}</section>
+        
         <section>
             <h2>Enter prompt here</h2>
             <form onSubmit={handleSubmit} >
                 <input
-                    className='ring-2 ring-black m-1'
+                    className='input input-bordered input-primary w-full m-1 max-w-xs'
                     onChange={handleChange}
                     type="text"
                     value={newForm.submission}
                     name="submission"
                     placeholder="..."
                     />
-                    <input
-                    className='ring-2 ring-black m-1'
-                    onChange={handleChange}
-                    type="text"
-                    value={newForm.response}
-                    name="response"
-                    placeholder="temp"
-                    />
-                    <input
-                    className='ring-2 ring-black m-1'
-                    onChange={handleChange}
-                    type="text"
-                    value={newForm.analysis}
-                    name="analysis"
-                    placeholder="temp"
-                    />
                     <button
-                    className='rounded-full ring-2 ring-black m-1'
+                    className='btn btn-primary my-5 m-1'
                     >Send query</button>
             </form>
         </section>
+        <section className="query-list">{isLoading ? loading() : loaded()}</section>
     </div>
   );
 }
