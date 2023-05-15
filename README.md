@@ -32,3 +32,4 @@ To explore the GPT Buddy app, visit click [here](https://jocular-seahorse-333cef
 * User login/logout: Implement a user authentication system to allow for personalized experiences and security.
 * Restrict User Routes using Authentication: Utilize the authentication system to restrict access to certain routes and functionalities, ensuring a safer user experience.
 * Format UI to be more appealing
+* Use more sophisticated OpenAI endpoint / model
