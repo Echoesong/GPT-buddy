@@ -18,7 +18,6 @@ function Nav(){
 export default function Header(props){
     return (
         <div className='Header'>
-            <h1>Header Component</h1>
             <Nav/>
             
         </div>
