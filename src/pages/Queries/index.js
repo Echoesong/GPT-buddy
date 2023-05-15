@@ -43,7 +43,6 @@ export default function Queries(props) {
     console.log("id passed to dlete func", id);
     try {
       const delResponse = await deleteQuery(id);
-      console.log(delResponse);
 
       if (delResponse._id) {
         setRefreshData(!refreshData);
