@@ -4,15 +4,14 @@
 GPT Buddy is a MERN stack application designed to help users interact with the GPT-4 AI model. It allows users to input text and receive suggestions or responses from the AI, making it a perfect tool for brainstorming ideas, generating content, or simply having a chat with an AI companion.
 
 # Getting Started
-To explore the GPT Buddy app, visit the following links:
-
-* Deployed App: https://jocular-seahorse-333cef.netlify.app/
-* Trello Board: https://trello.com/b/3VJVFmFj/gpt-wrap-store
-* Original ERD: https://lucid.app/lucidchart/44349014-cb20-4a81-b13e-5d668b1fca60/edit?viewport_loc=56%2C-800%2C1733%2C1885%2C0_0&invitationId=inv_29999c44-f4fb-4927-adf1-ff625e6846d8
+To explore the GPT Buddy app, visit click [here](https://jocular-seahorse-333cef.netlify.app/)
 
 # Screenshot(s)
 
-TBD
+## Main page
+![Main Page](https://i.imgur.com/YdpdnR3.png)
+## Details page
+![Details](https://i.imgur.com/G2YqSn2.png)
 
 # Technologies Used
 * MongoDB
