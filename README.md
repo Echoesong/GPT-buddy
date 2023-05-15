@@ -1,7 +1,7 @@
 
 
 # GPT Buddy
-GPT Buddy is a MERN stack application designed to help users interact with the GPT-4 AI model. It allows users to input text and receive suggestions or responses from the AI, making it a perfect tool for brainstorming ideas, generating content, or simply having a chat with an AI companion.
+GPT Buddy is a MERN stack application designed to help users interact with OpenAI's language models, such as ChatGPT or GPT4. It allows users to input text and receive suggestions or responses from the AI, making it a perfect tool for brainstorming ideas, generating content, or summarizing a section of text.
 
 # Getting Started
 
