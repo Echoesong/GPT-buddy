@@ -23,11 +23,12 @@ export default function Show(props) {
   }, []);
 
   const loaded = () => (
-    <div>
-        <h1>Show Page</h1>
-        <h2>{query.submission}</h2>
-        <h2>{query.response}</h2>
-        <h2>{query.analysis}</h2>
+    <div className='flex-column justify-center'>
+        <h1><strong>Query Submission</strong></h1>
+        <p className='border border-gray-400 mb-12 max-w-7xl max-h-sm p-2'>{query.submission}</p>
+        <h1><strong>Query Response</strong></h1>
+        <p className='border border-gray-400 mb-12 max-w-7xl p-2'>{query.response}</p>
+        
     </div>
   )
 

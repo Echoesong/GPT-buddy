@@ -4,7 +4,7 @@ import Show from '../../pages/Show'
 
 export default function Main(props){
     return (
-        <main>
+        <main className='p-4'>
 
             <Routes>
                 <Route path='/' element={<Queries/>} />
