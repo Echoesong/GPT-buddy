@@ -60,7 +60,7 @@ export default function Queries(props) {
   useEffect(() => {
     handleRequest();
   }, [refreshData]);
-  console.log("all shown queries", queries);
+  
   const loaded = () => {
     if (Array.isArray(queries)) {
       return queries.map((query) => {
