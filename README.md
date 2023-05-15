@@ -4,7 +4,13 @@
 GPT Buddy is a MERN stack application designed to help users interact with the GPT-4 AI model. It allows users to input text and receive suggestions or responses from the AI, making it a perfect tool for brainstorming ideas, generating content, or simply having a chat with an AI companion.
 
 # Getting Started
+
+GPT Buddy has two primary modes: 'Question' and 'Summary.' Prepend your submission with one of the two words to engage that mode, as in the first two example submissions. If no mode is specified, the default mode is Question.
+
+NOTE: Currently no feedback is provided when hitting 'submit,' but rest assured your submission will show within ~10 seconds.
+
 To explore the GPT Buddy app, visit click [here](https://jocular-seahorse-333cef.netlify.app/)
+
 
 # Screenshot(s)
 
@@ -19,6 +25,7 @@ To explore the GPT Buddy app, visit click [here](https://jocular-seahorse-333cef
 * React
 * NodeJS
 * Tailwind CSS
+* OpenAI
 
 # Next Steps:
 
