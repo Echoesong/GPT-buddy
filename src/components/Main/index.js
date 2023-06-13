@@ -5,7 +5,6 @@ import Show from '../../pages/Show'
 export default function Main(props){
     return (
         <main className='p-4'>
-
             <Routes>
                 <Route path='/' element={<Queries/>} />
                 <Route path='/queries/:id' element={<Show/>} />
