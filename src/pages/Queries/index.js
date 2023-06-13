@@ -59,34 +59,36 @@ export default function Queries(props) {
   useEffect(() => {
     handleRequest();
   }, [refreshData]);
-  
+
   const loaded = () => {
     if (Array.isArray(queries)) {
       return queries.map((query) => {
         return (
-          <div
-            key={query._id}
-            className="card w-96 h-96 my-2 bg-base-100 shadow-xl rounded-lg border border-black-300 flex flex-col"
-          >
-            <div className="card-body px-2 overflow-y-auto max-h-48 flex-1">
-              <div className="">
-                <Link to={`/queries/${query._id}`}>
-                  <p className="overflow-ellipsis whitespace-nowrap">
-                    <strong>Submission:</strong> {query.submission}
-                  </p>
-                  <p className="overflow-ellipsis ">
-                    <strong>Response:</strong> {query.response}
-                  </p>
-                </Link>
+          <>
+            <div className="collapse bg-base-200" key={query._id}>
+              <input type="checkbox" />
+              <div className="collapse-title text-xl font-medium">
+                {query.submission.length > 50
+                  ? `${query.submission.substring(0, 100)}...`
+                  : query.submission}
+              </div>
+
+              <div className="collapse-content">
+                {query.response}
+                <div className="flex flex-column">
+                  <button
+                    className="btn btn-accent mx-1 my-1"
+                    onClick={() => handleQueryDelete(query._id)}
+                  >
+                    Delete
+                  </button>
+                  <Link to={`/queries/${query._id}`}>
+                    <button className="btn btn-secondary mx-1 my-1">Details</button>
+                  </Link>
+                </div>
               </div>
             </div>
-            <button
-              className="btn w-3/5 mx-auto my-2 h-8 rounded-lg border border-gray-300 hover:bg-red-400 self-end"
-              onClick={() => handleQueryDelete(query._id)}
-            >
-              Delete
-            </button>
-          </div>
+          </>
         );
       });
     } else {
@@ -125,10 +127,7 @@ export default function Queries(props) {
             name="submission"
             placeholder="'QUESTION' or 'SUMMARY''"
           />
-
-          <button className="btn btn-primary my-5 mx-1 px-2 rounded-lg border border-gray-300 hover:bg-green-300">
-            Send query
-          </button>
+          <button className="btn btn-success">Send query</button>
         </form>
       </section>
       <section className="grid grid-cols-1 justify-items-center gap-4">
