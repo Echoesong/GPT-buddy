@@ -9,6 +9,10 @@ function Nav(){
           <Link to="/">
             <div className="btn btn-ghost normal-case txt-xl">Home</div>
           </Link>
+          <Link to="/about">
+            <div className="btn btn-ghost normal-case txt-xl">About</div>
+          </Link>
+
           
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Queries from '../../pages/Queries'
 import Show from '../../pages/Show'
+import About from '../../pages/About'
 
 export default function Main(props){
     return (
@@ -8,6 +9,7 @@ export default function Main(props){
             <Routes>
                 <Route path='/' element={<Queries/>} />
                 <Route path='/queries/:id' element={<Show/>} />
+                <Route path='/about' element={<About/>} />
             </Routes>
         </main>
     )
