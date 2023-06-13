@@ -4,13 +4,13 @@ function Nav(){
 
     return (
       <header className="mb-2">
-      <div className="navbar flex justify-between bg-slate-700 border-r-2">
+      <div className="navbar flex justify-between border-r-2 bg-gray-800">
         <div className="flex">
           <Link to="/">
-            <div className="btn btn-ghost normal-case txt-xl">Home</div>
+            <div className="btn btn-outline normal-case txt-xl mx-1 ">Home</div>
           </Link>
           <Link to="/about">
-            <div className="btn btn-ghost normal-case txt-xl">About</div>
+            <div className="btn btn-outline normal-case txt-xl mx-1 ">About</div>
           </Link>
 
           

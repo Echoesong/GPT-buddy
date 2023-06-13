@@ -59,7 +59,7 @@ export default function Queries(props) {
   useEffect(() => {
     handleRequest();
   }, [refreshData]);
-  
+
   const loaded = () => {
     if (Array.isArray(queries)) {
       return queries.map((query) => {
@@ -68,25 +68,24 @@ export default function Queries(props) {
             <div className="collapse bg-base-200" key={query._id}>
               <input type="checkbox" />
               <div className="collapse-title text-xl font-medium">
-  {query.submission.length > 50 
-    ? `${query.submission.substring(0, 100)}...` 
-    : query.submission}
-</div>
+                {query.submission.length > 50
+                  ? `${query.submission.substring(0, 100)}...`
+                  : query.submission}
+              </div>
 
               <div className="collapse-content">
                 {query.response}
-                <div className='flex flex-column'>
+                <div className="flex flex-column">
                   <button
-                  className="btn btn-accent"
-                  onClick={() => handleQueryDelete(query._id)}
-                >
-                  Delete
-                </button>
-                <Link to={`/queries/${query._id}`}>
-                <button className='btn btn-secondary'>Details</button>
-                </Link>
+                    className="btn btn-accent mx-1 my-1"
+                    onClick={() => handleQueryDelete(query._id)}
+                  >
+                    Delete
+                  </button>
+                  <Link to={`/queries/${query._id}`}>
+                    <button className="btn btn-secondary mx-1 my-1">Details</button>
+                  </Link>
                 </div>
-                
               </div>
             </div>
           </>
@@ -128,9 +127,7 @@ export default function Queries(props) {
             name="submission"
             placeholder="'QUESTION' or 'SUMMARY''"
           />
-          <button className="btn btn-success">
-            Send query
-          </button>
+          <button className="btn btn-success">Send query</button>
         </form>
       </section>
       <section className="grid grid-cols-1 justify-items-center gap-4">
