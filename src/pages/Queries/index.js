@@ -68,11 +68,15 @@ export default function Queries(props) {
             <div className="collapse bg-base-200" key={query._id}>
               <input type="checkbox" />
               <div className="collapse-title text-xl font-medium">
-                {query.submission}
-              </div>
+  {query.submission.length > 50 
+    ? `${query.submission.substring(0, 100)}...` 
+    : query.submission}
+</div>
+
               <div className="collapse-content">
                 {query.response}
-                <button
+                <div className='flex flex-column'>
+                  <button
                   className="btn btn-accent"
                   onClick={() => handleQueryDelete(query._id)}
                 >
@@ -81,6 +85,8 @@ export default function Queries(props) {
                 <Link to={`/queries/${query._id}`}>
                 <button className='btn btn-secondary'>Details</button>
                 </Link>
+                </div>
+                
               </div>
             </div>
           </>
