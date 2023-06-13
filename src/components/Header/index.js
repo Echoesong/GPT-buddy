@@ -3,14 +3,16 @@ import { Link } from "react-router-dom"
 function Nav(){
 
     return (
-      <nav className="flex basis-0 flex-row-reverse bg-gray-800 text-white shadow-lg px-1">
-        <Link
-          to="/"
-          className="bg-gray-300 my-2 inline-block p-2 rounded-full hover:bg-blue-800"
-        >
-          <p>Home</p>
-        </Link>
-      </nav>
+      <header className="mb-2">
+      <div className="navbar flex justify-between bg-slate-700 border-r-2">
+        <div className="flex">
+          <Link to="/">
+            <div className="btn btn-ghost normal-case txt-xl">Home</div>
+          </Link>
+          
+        </div>
+      </div>
+    </header>
     );
     
 }
