@@ -15,9 +15,9 @@ To explore the GPT Buddy app, visit click [here](https://jocular-seahorse-333cef
 # Screenshot(s)
 
 ## Main page
-![Main Page](https://i.imgur.com/YdpdnR3.png)
+![Main Page](https://i.imgur.com/yovUdwQ.png)
 ## Details page
-![Details](https://i.imgur.com/G2YqSn2.png)
+![Details](https://i.imgur.com/3YieN0p.png)
 
 # Technologies Used
 * MongoDB
