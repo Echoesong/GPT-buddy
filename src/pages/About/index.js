@@ -12,8 +12,9 @@ export default function About() {
 
         <p className="mb-4">
           In a nutshell, GPT-Buddy is a simple interface that lets you send
-          prompts to OpenAI's language models. You type in your text input, send
-          off the request, and the AI will return with a generated output.
+          prompts to OpenAI's language models. The current version uses
+          GPT-3.5-Turbo You type in your text input, send off the request, and
+          the AI will return with a generated output.
         </p>
         <p className="mb-4">
           The goal here is to keep things straightforward and user-friendly,

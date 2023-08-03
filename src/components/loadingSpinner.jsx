@@ -3,7 +3,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 
 const override = {
   display: "block",
-  margin: "0 auto",
+  margin: "auto",
   borderColor: "red",
 };
 
@@ -20,7 +20,7 @@ class AwesomeComponent extends React.Component {
       <div className="sweet-loading">
         <ClipLoader
           css={override}
-          size={150}
+          size={20}
           color={"#123abc"}
           loading={this.state.loading}
           speedMultiplier={1.5}

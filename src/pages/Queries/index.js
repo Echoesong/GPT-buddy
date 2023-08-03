@@ -132,7 +132,6 @@ export default function Queries(props) {
           </button>
         </form>
       </section>
-      {submitting && <AwesomeComponent />}
       <section className="grid grid-cols-1 justify-items-center gap-4">
         {isLoading ? loading() : loaded()}
       </section>
