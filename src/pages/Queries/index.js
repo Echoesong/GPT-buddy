@@ -5,11 +5,13 @@ import {
   deleteQuery,
 } from "../../utilities/queryServices";
 import { Link, useNavigate } from "react-router-dom";
+import AwesomeComponent from "../../components/loadingSpinner";
 
 export default function Queries(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [queries, setQueries] = useState([]);
   const [refreshData, setRefreshData] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
 
   //   Below I set state for a form. For my app, the only thing they will input is the text submission; response and analysis will be filled in by GPT response
@@ -24,10 +26,12 @@ export default function Queries(props) {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmitting(true);
     // eslint-disable-next-line no-unused-vars
     const newQuery = await createQuery(newForm);
     setNewForm({ submission: "", response: "", analysis: "" });
     handleRequest();
+    setSubmitting(false);
   };
   async function handleRequest() {
     try {
@@ -83,7 +87,9 @@ export default function Queries(props) {
                     Delete
                   </button>
                   <Link to={`/queries/${query._id}`}>
-                    <button className="btn btn-secondary mx-1 my-1">Details</button>
+                    <button className="btn btn-secondary mx-1 my-1">
+                      Details
+                    </button>
                   </Link>
                 </div>
               </div>
@@ -102,13 +108,7 @@ export default function Queries(props) {
       <div className="query-list">
         <h1>
           Loading...
-          <span>
-            <img
-              className="spinner"
-              src="https://freesvg.org/img/1544764567.png"
-              alt=""
-            />{" "}
-          </span>
+          <AwesomeComponent />
         </h1>
       </div>
     );
@@ -127,7 +127,9 @@ export default function Queries(props) {
             name="submission"
             placeholder="'QUESTION' or 'SUMMARY''"
           />
-          <button className="btn btn-success">Send query</button>
+          <button className="btn btn-success">
+            {submitting ? <AwesomeComponent /> : "Send query"}
+          </button>
         </form>
       </section>
       <section className="grid grid-cols-1 justify-items-center gap-4">
